@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+
+import Navbar from './components/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <h2 className='text-red-500'>HIII</h2>
-    </div>
+    <nav>
+      <Navbar />
+    </nav>
   )
 }
 
