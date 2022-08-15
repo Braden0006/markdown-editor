@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Preview() {
   return (
-    <div className="flex items-center justify-between bg-greywhite py-2 px-4">
+    <div className="flex items-center justify-between w-full bg-greywhite py-2 px-4">
       Markdown
 
       <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
