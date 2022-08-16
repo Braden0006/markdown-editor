@@ -1,11 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 
-export default function Navbar() {
+interface Props {
+  showMenu: boolean;
+  setShowMenu: (showMenu: boolean) => void;
+}
+
+const Navbar: FC<Props> = ({ showMenu, setShowMenu }) => {
   return (
     <div className="bg-navbarbg h-14 flex align-center items-center justify-between">
       <div className="flex items-center h-full">
         <div className="flex items-center bg-navbarmenu mr-4 h-full px-4 ">
           <svg
+            onClick={() => setShowMenu(!showMenu)}
             width="23"
             height="14"
             viewBox="0 0 23 14"
@@ -53,4 +59,6 @@ export default function Navbar() {
       </div>
     </div>
   );
-}
+};
+
+export default Navbar;

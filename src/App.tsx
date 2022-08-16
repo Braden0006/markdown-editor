@@ -5,12 +5,19 @@ import { MarkdownContext } from "./context/MarkdownContext";
 import Navbar from "./components/Navbar";
 import Preview from "./components/Preview";
 import Markdown from "./components/Markdown";
+import Menu from "./components/Menu";
 
 interface props {
   markdownInput: string;
   setMarkdownInput: (markdownInput: string) => void;
   preview: boolean;
   setPreview: (preview: boolean) => void;
+  document: any;
+  setDocument: (document: any) => void;
+  id: number;
+  setId: (id: number) => void;
+  showMenu: boolean;
+  setShowMenu: (showMenu: boolean) => void;
 }
 
 function App() {
@@ -53,18 +60,37 @@ This markdown editor allows for inline-code snippets, like this: '<p>I'm inline<
 
   const [preview, setPreview] = useState<boolean>(false);
 
+  const [id, setId] = useState(0);
+  const [document, setDocument] = useState([{ name: "welcome.md", id: id }]);
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
-    <>
-      <nav>
-        <Navbar />
-      </nav>
-      <main className="flex flex-col items-center">
-        <MarkdownContext.Provider value={{ markdownInput, setMarkdownInput, preview, setPreview }}>
-          <Preview />
-          <Markdown />
-        </MarkdownContext.Provider>
-      </main>
-    </>
+    <div className="flex">
+      {showMenu && (
+        <aside className="bg-black w-70v">
+          <Menu
+            document={document}
+            setDocument={setDocument}
+            id={id}
+            setId={setId}
+          />
+        </aside>
+      )}
+
+      <div className="w-screen">
+        <nav>
+          <Navbar showMenu={showMenu} setShowMenu={setShowMenu} />
+        </nav>
+        <main className="flex flex-col items-center">
+          <MarkdownContext.Provider
+            value={{ markdownInput, setMarkdownInput, preview, setPreview }}
+          >
+            <Preview />
+            <Markdown />
+          </MarkdownContext.Provider>
+        </main>
+      </div>
+    </div>
   );
 }
 

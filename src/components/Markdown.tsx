@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 
 import MarkdownPreview from "./MarkdownPreview";
+
+
 import { useMarkdownContext } from "../context/MarkdownContext";
 
 export default function Markdown() {
@@ -12,7 +14,7 @@ export default function Markdown() {
   }
 
   return (
-    <>
+    <div>
       {preview ? (
         <MarkdownPreview />
       ) : (
@@ -22,6 +24,6 @@ export default function Markdown() {
           onChange={handleChange}
         ></textarea>
       )}
-    </>
+    </div>
   );
 }
