@@ -2,17 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.preview h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-bottom: 1rem;
-}
-
-.preview h3,
+.preview h1, h2, h3, h4, h5, h6, h3,
 p {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }

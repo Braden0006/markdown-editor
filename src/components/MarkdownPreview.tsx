@@ -10,7 +10,7 @@ const MarkdownPreview: FC = () => {
   const { markdownInput } = useMarkdownContext();
 
   return (
-    <div className="preview p-4">
+    <div className="preview py-4 w-90v">
       <ReactMarkdown children={markdownInput} />
     </div>
   );

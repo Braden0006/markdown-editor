@@ -17,7 +17,7 @@ export default function Markdown() {
         <MarkdownPreview />
       ) : (
         <textarea
-          className="w-90v h-170v py-4 outline-none"
+          className="w-90v h-170v py-4 outline-none font-robotomono overflow-hidden"
           value={markdownInput}
           onChange={handleChange}
         ></textarea>

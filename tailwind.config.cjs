@@ -37,6 +37,11 @@ module.exports = {
         '175v': '175vh',
         '200v': '200vh',
       },
+      fontFamily: {
+        'roboto': ['Roboto, sans-serif'],
+        'robotomono': ['Roboto Mono, monospace'],
+        'robotoslab': ['Roboto Slab, serif'],
+      }
     },
   },
   plugins: [],
