@@ -9,11 +9,13 @@ import Markdown from "./components/Markdown";
 interface props {
   markdownInput: string;
   setMarkdownInput: (markdownInput: string) => void;
+  preview: boolean;
+  setPreview: (preview: boolean) => void;
 }
 
 function App() {
   const [markdownInput, setMarkdownInput] = useState<string>(
-  `# Welcome to markdown
+    `# Welcome to markdown
 
 Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.
 
@@ -46,7 +48,10 @@ This markdown editor allows for inline-code snippets, like this: '<p>I'm inline<
 <main>
   <h1>This is a larger code block</h1>
 </main>
-'''`);
+'''`
+  );
+
+  const [preview, setPreview] = useState<boolean>(false);
 
   return (
     <>
@@ -54,8 +59,8 @@ This markdown editor allows for inline-code snippets, like this: '<p>I'm inline<
         <Navbar />
       </nav>
       <main className="flex flex-col items-center">
-        <Preview />
-        <MarkdownContext.Provider value={{ markdownInput, setMarkdownInput }}>
+        <MarkdownContext.Provider value={{ markdownInput, setMarkdownInput, preview, setPreview }}>
+          <Preview />
           <Markdown />
         </MarkdownContext.Provider>
       </main>
